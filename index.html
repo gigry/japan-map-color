@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <title>日本地図塗り</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon.png">
   <style>
     body { font-family: sans-serif; text-align: center; margin: 0; padding: 1em; }
     svg { width: 100%; max-width: 500px; height: auto; }
@@ -29,10 +27,6 @@
         localStorage.setItem(path.id, colorPicker.value);
       });
     });
-
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
   </script>
 </body>
 </html>
