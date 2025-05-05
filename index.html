@@ -20,7 +20,7 @@
   <script>
     const colorPicker = document.getElementById("colorPicker");
 
-    fetch("prefecture.svg")
+    fetch("/japan-map-color/prefecture.svg")
       .then(res => res.text())
       .then(svg => {
         document.getElementById("mapContainer").innerHTML = svg;
