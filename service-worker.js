@@ -4,8 +4,7 @@ const FILES_TO_CACHE = [
   "/japan-map-color/index.html",
   "/japan-map-color/manifest.json",
   "/japan-map-color/service-worker.js",
-  "/japan-map-color/icon.png",
-  "/japan-map-color/prefecture.svg"
+  "/japan-map-color/icon.png"
 ];
 
 self.addEventListener('install', event => {

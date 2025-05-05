@@ -15,23 +15,20 @@
 <body>
   <h1>日本地図 塗りアプリ</h1>
   <input type="color" id="colorPicker" value="#f39c12"><br><br>
-  <div id="mapContainer">読み込み中...</div>
+  <div id="mapContainer">
+    None
+  </div>
 
   <script>
     const colorPicker = document.getElementById("colorPicker");
 
-    fetch("prefecture.svg")
-      .then(res => res.text())
-      .then(svg => {
-        document.getElementById("mapContainer").innerHTML = svg;
-        document.querySelectorAll("svg path").forEach(path => {
-          path.style.fill = localStorage.getItem(path.id) || "#ccc";
-          path.addEventListener("click", () => {
-            path.style.fill = colorPicker.value;
-            localStorage.setItem(path.id, colorPicker.value);
-          });
-        });
+    document.querySelectorAll("svg path").forEach(path => {
+      path.style.fill = localStorage.getItem(path.id) || "#ccc";
+      path.addEventListener("click", () => {
+        path.style.fill = colorPicker.value;
+        localStorage.setItem(path.id, colorPicker.value);
       });
+    });
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js');
