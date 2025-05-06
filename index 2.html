@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>日本地図塗り</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; text-align: center; margin: 0; padding: 1em; }
+    svg { width: 100%; max-width: 500px; height: auto; }
+    svg path { stroke: #333; stroke-width: 1; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>日本地図 塗りアプリ</h1>
+  <input type="color" id="colorPicker" value="#f39c12"><br><br>
+  <div id="mapContainer">
+    None
+  </div>
+
+  <script>
+    const colorPicker = document.getElementById("colorPicker");
+
+    document.querySelectorAll("svg path").forEach(path => {
+      path.style.fill = localStorage.getItem(path.id) || "#ccc";
+      path.addEventListener("click", () => {
+        path.style.fill = colorPicker.value;
+        localStorage.setItem(path.id, colorPicker.value);
+      });
+    });
+  </script>
+</body>
+</html>
